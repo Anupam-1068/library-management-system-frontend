@@ -15,12 +15,25 @@ function EditBookView() {
     const [bookDescription, setBookDescription] = useState("");
 
     const loadBook = async () => {
-        const response = await BookClient.getBookById(routerParams.bookId);
-        setBook(response.data);
-        setBookTitle(response.data.title);
-        setBookAuthor(response.data.author);
-        setBookDescription(response.data.description);
+        try {
+            const response = await BookClient.getBookById(routerParams.bookId);
+
+            // Ensure that the response data is available before updating the state
+            if (response.data) {
+                setBook(response.data);
+                setBookTitle(response.data.title);
+                setBookAuthor(response.data.author);
+                setBookDescription(response.data.description);
+            } else {
+                console.error("Invalid response data");
+                // Handle the case where the response data is not available
+            }
+        } catch (error) {
+            console.error("Error fetching book:", error);
+            // Handle the error (e.g., show an error message)
+        }
     }
+
 
 
     const handleSave = async () => {
@@ -52,18 +65,18 @@ function EditBookView() {
 
     useEffect(() => {
         loadBook();
-    }, [routerParams])
+    }, [loadBook, routerParams])
 
     return (
         <div className="mt-5">
             <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Book name</Form.Label>
+                    <Form.Label>Book Title</Form.Label>
                     <Form.Control type="text" onChange={handleTitleInput} value={bookTitle} placeholder="Book Title" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Book name</Form.Label>
-                    <Form.Control type="text" onChange={handleAuthorInput} value={bookTitle} placeholder="Book Author" />
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
+                    <Form.Label>Book Author</Form.Label>
+                    <Form.Control type="text" onChange={handleAuthorInput} value={bookAuthor} placeholder="Book Author" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Book description</Form.Label>

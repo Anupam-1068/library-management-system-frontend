@@ -3,17 +3,18 @@ import axios from "axios";
 
 const BookClient = {
     getAllBooks() {
-        return axios.get("/book")
+        return axios.get("/api/book")
     },
     getBookById(id) {
-        return axios.get(`/book/${id}`)
+        return axios.get(`/api/book/${id}`)
     },
     updateBook(book) {
-        return axios.put(`/book/${book.id}`, book)
+        return axios.put(`/api/book/${book.id}`, book)
     },
     deleteBook(id) {
-        return axios.delete(`/book/${id}`)
+        return axios.delete(`/api/book/${id}`)
     }
+
 }
 
 export {BookClient}

@@ -25,14 +25,6 @@ function AllBooksView() {
         loadBooks();
     }, [])
 
-
-    // const mockData = [
-    // {id : 1,title:'testname',author:'Khan',
-    //     description:"hggh"
-    //
-    // },{id : 2,name:'testname',author:'Khan',
-    //     description:"hgghj"},
-    // ]
     return (
         <div className="mt-5">
             {
