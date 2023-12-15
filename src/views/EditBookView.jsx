@@ -10,13 +10,15 @@ function EditBookView() {
     const navigate = useNavigate();
 
     const [book, setBook] = useState({});
-    const [bookName, setBookName] = useState("");
+    const [bookTitle, setBookTitle] = useState("");
+    const [bookAuthor, setBookAuthor] = useState("");
     const [bookDescription, setBookDescription] = useState("");
 
     const loadBook = async () => {
         const response = await BookClient.getBookById(routerParams.bookId);
         setBook(response.data);
-        setBookName(response.data.name);
+        setBookTitle(response.data.title);
+        setBookAuthor(response.data.author);
         setBookDescription(response.data.description);
     }
 
@@ -24,13 +26,18 @@ function EditBookView() {
     const handleSave = async () => {
         await BookClient.updateBook({
             id: book.id,
-            name: bookName,
+            name: bookTitle,
+            author: bookAuthor,
             description: bookDescription
         })
     }
 
-    const handleNameInput = (e) => {
-        setBookName(e.target.value)
+    const handleTitleInput = (e) => {
+        setBookTitle(e.target.value)
+    }
+
+    const handleAuthorInput = (e) => {
+        setBookAuthor(e.target.value)
     }
 
     const handleDescriptionInput = (e) => {
@@ -52,7 +59,11 @@ function EditBookView() {
             <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Book name</Form.Label>
-                    <Form.Control type="text" onChange={handleNameInput} value={bookName} placeholder="Book name" />
+                    <Form.Control type="text" onChange={handleTitleInput} value={bookTitle} placeholder="Book Title" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Book name</Form.Label>
+                    <Form.Control type="text" onChange={handleAuthorInput} value={bookTitle} placeholder="Book Author" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Book description</Form.Label>

@@ -11,10 +11,12 @@ function NavigationBar() {
     return (
         <Navbar className="navbar navbar-light" style={navbarStyle}>
             <Container>
-                <Navbar.Brand href="#home">Library Management System</Navbar.Brand>
+                <Navbar.Brand href="/home">Library Management System</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
                     <Nav.Link href="/book">Book</Nav.Link>
+                    <Nav.Link href="/test">Test</Nav.Link>
+
                 </Nav>
                 <Form inline>
                     <Row>

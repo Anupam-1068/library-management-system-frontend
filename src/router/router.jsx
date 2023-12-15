@@ -21,6 +21,10 @@ const router = createBrowserRouter([
                 path: "/book/:bookId/edit",
                 element: <EditBookView/>,
             },
+            {
+                path: "/test",
+                element: <div>Router is working</div>,
+            },
         ],
     },
 
