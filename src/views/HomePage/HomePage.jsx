@@ -1,4 +1,4 @@
-import Image1 from '../assets/Image1.jpg';
+import Image1 from '../../assets/Image1.jpg';
 import './HomePage.css'; // Import your CSS file
 
 const HomePage = () => {

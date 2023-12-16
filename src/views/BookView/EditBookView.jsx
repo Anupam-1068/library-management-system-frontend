@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import {useParams, useNavigate} from "react-router-dom";
 import {Button, Form, } from "react-bootstrap";
-import {BookClient} from "../api/BookClientApi.jsx";
-import {Books_VIEW_PATH} from "../router/router.jsx";
+import {BookClient} from "../../api/BookClientApi.jsx";
+import {Books_VIEW_PATH} from "../../router/router.jsx";
 
 function EditBookView() {
 
@@ -34,16 +34,20 @@ function EditBookView() {
         }
     }
 
-
-
     const handleSave = async () => {
-        await BookClient.updateBook({
+        const updatedBook = {
             id: book.id,
             title: bookTitle,
             author: bookAuthor,
             description: bookDescription
-        })
-    }
+        };
+        setBook(updatedBook);
+
+        // Send the update request to the server
+        await BookClient.updateBook(updatedBook);
+        navigate(Books_VIEW_PATH);
+    };
+
 
     const handleTitleInput = (e) => {
         setBookTitle(e.target.value)

@@ -4,9 +4,18 @@ import Navbar from 'react-bootstrap/Navbar';
 import {Button, Col, Form, Row} from "react-bootstrap";
 import './NavigationBar.css';
 import {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 
 function NavigationBar() {
     const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+
+        // Redirect to the Book List page with the search query as a query parameter
+        navigate(`/book?title=${encodeURIComponent(searchQuery)}`);
+    };
 
     return (
         <Navbar className="navbar navbar-light">

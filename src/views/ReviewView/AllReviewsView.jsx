@@ -1,6 +1,6 @@
-import ReviewTable from "../components/table/ReviewTable.jsx";
+import ReviewTable from "../../components/table/ReviewTable.jsx";
 import { useEffect, useState } from 'react';
-import { ReviewClient } from '../api/ReviewClientApi.jsx';
+import { ReviewClient } from '../../api/ReviewClientApi.jsx';
 
 function AllReviewsView() {
     const [reviews, setReviews] = useState([]);
