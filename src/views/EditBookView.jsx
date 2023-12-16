@@ -39,7 +39,7 @@ function EditBookView() {
     const handleSave = async () => {
         await BookClient.updateBook({
             id: book.id,
-            name: bookTitle,
+            title: bookTitle,
             author: bookAuthor,
             description: bookDescription
         })

@@ -2,21 +2,19 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {Button, Col, Form, Row} from "react-bootstrap";
+import './NavigationBar.css';
+import {useState} from "react";
 
 function NavigationBar() {
-    const navbarStyle = {
-        backgroundColor: '#e3f2fd',
-    };
+    const [searchQuery, setSearchQuery] = useState('');
 
     return (
-        <Navbar className="navbar navbar-light" style={navbarStyle}>
+        <Navbar className="navbar navbar-light">
             <Container>
-                <Navbar.Brand href="/home">Library Management System</Navbar.Brand>
+                <Navbar.Brand href="/home">Home</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="/home">Home</Nav.Link>
-                    <Nav.Link href="/book">Book</Nav.Link>
-                    <Nav.Link href="/test">Test</Nav.Link>
-
+                    <Nav.Link href="/book">Book List</Nav.Link>
+                    <Nav.Link href="/review">Review List</Nav.Link>
                 </Nav>
                 <Form inline>
                     <Row>
@@ -25,6 +23,8 @@ function NavigationBar() {
                                 type="text"
                                 placeholder="Search Books"
                                 className=" mr-sm-2"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
                             />
                         </Col>
                         <Col xs="auto">

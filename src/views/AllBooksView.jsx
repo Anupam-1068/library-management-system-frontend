@@ -25,6 +25,8 @@ function AllBooksView() {
         loadBooks();
     }, [])
 
+    // eslint-disable-next-line no-import-assign
+
     return (
         <div className="mt-5">
             {

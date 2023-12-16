@@ -1,4 +1,6 @@
-.me-auto {
+.navbar.navbar-light {
     color: #000 ;
-    font-size: 22px ;
+    font-size: 16px ;
+    background-color: #e3f2fd;
+    margin: 0;
 }
