@@ -2,8 +2,8 @@ import App from "../App.jsx";
 import {createBrowserRouter} from "react-router-dom";
 import AllBooksView from "../views/AllBooksView.jsx";
 import EditBookView from "../views/EditBookView.jsx";
-import ReviewTable from "../components/table/ReviewTable.jsx";
 import HomePage from "../views/HomePage.jsx";
+import AllReviewsView from "../views/AllReviewsView.jsx";
 
 export const Books_VIEW_PATH = "/book";
 const router = createBrowserRouter([
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/review",
-                element: <ReviewTable/>
+                element: <AllReviewsView/>
             },
 
         ],

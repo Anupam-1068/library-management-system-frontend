@@ -7,6 +7,10 @@ const ReviewClient = {
         return axios.get("/api/review")
     },
 
+    getReviewById(id) {
+        return axios.get(`/api/review/${id}`)
+    },
+
 }
 
 export {ReviewClient}

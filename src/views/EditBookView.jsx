@@ -65,7 +65,7 @@ function EditBookView() {
 
     useEffect(() => {
         loadBook();
-    }, [loadBook, routerParams])
+    }, [routerParams])
 
     return (
         <div className="mt-5">
