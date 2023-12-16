@@ -8,8 +8,8 @@ const BookClient = {
     getBookById(id) {
         return axios.get(`/api/book/${id}`)
     },
-    createBook() {
-        return axios.create("/api/book")
+    createBook(book) {
+        return axios.post("/api/book",book)
     },
     updateBook(book) {
         return axios.put(`/api/book/${book.id}`, book)

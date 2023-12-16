@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BookClient } from "../../api/BookClientApi.jsx";
 import { Button, Form } from "react-bootstrap";
+import {Books_VIEW_PATH} from "../../router/router.jsx";
 
 function CreateBookView() {
-    const routerParams = useParams();
     const navigate = useNavigate();
 
     const [bookTitle, setBookTitle] = useState("");
@@ -29,8 +29,8 @@ function CreateBookView() {
             const createdBook = await BookClient.createBook(newBook);
 
             // After successful creation, navigate to the view of the created book
-            navigate(`/book/${createdBook.id}`);
-
+            // navigate(`/book/${createdBook.id}`);
+            navigate(Books_VIEW_PATH);
             // Clear form fields after successful creation
             setBookTitle("");
             setBookAuthor("");
